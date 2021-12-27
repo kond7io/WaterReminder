@@ -18,3 +18,4 @@
 - [Redux-Saga](https://redux-saga.js.org/) State management
 - [React Navigation](https://reactnavigation.org/) Navigation
 - [Firebase](https://firebase.google.com/) Authentication
+- [React Native Push Notifications](https://github.com/zo0r/react-native-push-notification) Notifications
