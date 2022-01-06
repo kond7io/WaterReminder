@@ -17,13 +17,13 @@ const styles = StyleSheet.create<Styles>({
     fontWeight: 'normal',
   },
   h1: {
-    fontSize: 24,
+    fontSize: 32,
   },
   h2: {
-    fontSize: 18,
+    fontSize: 24,
   },
   h3: {
-    fontSize: 14,
+    fontSize: 18,
   },
 });
 export default styles;

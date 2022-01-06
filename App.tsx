@@ -1,11 +1,11 @@
 import React from 'react';
-import {AppNavigator} from 'src/navigation';
+import {Panel} from './src/views/app/';
 import {SafeAreaView} from 'react-native';
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <AppNavigator />
+    <SafeAreaView style={{flex: 1}}>
+      <Panel />
     </SafeAreaView>
   );
 };
