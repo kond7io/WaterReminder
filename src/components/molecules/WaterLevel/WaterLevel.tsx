@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Animated} from 'react-native';
 import {WaterLevelItem} from '../../../components/atoms';
-import {colors} from '../../../utils/hooks/constants/colors';
+import {colors} from '../../../utils/constants/colors';
 import {Column} from '../../../components/containers';
 import styles from './WaterLevel.style';
 import {useAnimationRef} from '../../../utils/hooks/useAnimationRef';

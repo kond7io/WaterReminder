@@ -4,9 +4,9 @@ import {ViewStyle} from 'react-native';
 import {Button} from '../../../components/atoms';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Animated} from 'react-native';
-import {colors} from '../../../utils/hooks/constants/colors';
+import {colors} from '../../../utils/constants/colors';
 import {useAnimationRef} from '../../../utils/hooks/useAnimationRef';
-import {iconDimensions} from '../../../utils/hooks/constants/componentsDimensions';
+import {iconDimensions} from '../../../utils/constants/componentsDimensions';
 
 export interface AddWaterGlassProps {
   style?: ViewStyle;

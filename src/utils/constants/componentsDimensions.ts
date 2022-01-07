@@ -1,7 +1,4 @@
-import {
-  windowHeight,
-  windowWidth,
-} from '../../../utils/hooks/constants/deviceDimension';
+import {windowHeight, windowWidth} from './deviceDimension';
 
 export const buttonDimensions = {
   width: windowWidth * 0.35,

@@ -1,5 +1,5 @@
 import {StyleSheet, ViewStyle} from 'react-native';
-import {buttonDimensions} from '../../../utils/hooks/constants/componentsDimensions';
+import {buttonDimensions} from '../../../utils/constants/componentsDimensions';
 
 interface Styles {
   button: ViewStyle;

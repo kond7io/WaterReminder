@@ -8,14 +8,16 @@ export interface TextProps {
   style?: TextStyle | TextStyle[];
   weight: 'bold' | 'regular';
   category: 'h1' | 'h2' | 'h3';
+  color?: string;
 }
 
 export const Text: React.FC<TextProps> = ({
   children,
+  style,
   target,
   weight,
   category,
-  style,
+  color,
 }) => {
   let textWeight: {};
   switch (weight) {
@@ -33,7 +35,9 @@ export const Text: React.FC<TextProps> = ({
   const textSize = category ? styles[category] : {};
 
   return (
-    <ReactNativeText onPress={target} style={[textSize, textWeight, style]}>
+    <ReactNativeText
+      onPress={target}
+      style={[textSize, textWeight, style, {color: color}]}>
       {children}
     </ReactNativeText>
   );
