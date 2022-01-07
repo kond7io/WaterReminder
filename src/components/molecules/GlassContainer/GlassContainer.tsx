@@ -29,7 +29,7 @@ export const GlassContainer: React.FC<GlassContainerProps> = ({
       ]}>
       {glassCount.map((val, index) => {
         if (index < end) {
-          return <GlassItem />;
+          return <GlassItem key={index} />;
         }
       })}
     </Column>

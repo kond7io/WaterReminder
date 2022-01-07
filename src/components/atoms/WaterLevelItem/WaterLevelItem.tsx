@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import {Animated, Text} from 'react-native';
+import {Animated} from 'react-native';
 
 export interface WaterLevelItemProps {
   opacity: React.ReactNode;
