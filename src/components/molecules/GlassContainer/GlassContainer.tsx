@@ -15,18 +15,7 @@ export const GlassContainer: React.FC<GlassContainerProps> = ({
   const end = 12;
 
   return (
-    <Column
-      columnStyle={[
-        {
-          flexDirection: 'row',
-          alignItems: 'flex-end',
-          justifyContent: 'flex-end',
-          flex: 1,
-          bottom: 20,
-          zIndex: 2,
-        },
-        style,
-      ]}>
+    <Column>
       {glassCount.map((val, index) => {
         if (index < end) {
           return <GlassItem key={index} />;

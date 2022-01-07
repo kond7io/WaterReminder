@@ -13,7 +13,7 @@ export const AddWaterGlass: React.FC<AddWaterGlassProps> = ({
   style,
   target,
 }) => {
-  const buttonColor = useRef(new Animated.Value(0.3)).current;
+  const buttonColor = useRef(new Animated.Value(0)).current;
 
   const animate = () => {
     Animated.sequence([
@@ -33,7 +33,7 @@ export const AddWaterGlass: React.FC<AddWaterGlassProps> = ({
 
   const buttonInterpolate = buttonColor.interpolate({
     inputRange: [0, 1],
-    outputRange: ['#FFFFFF', '#42db40'],
+    outputRange: [colors.white, colors.limeGreen],
   });
 
   const animatedStyle = {

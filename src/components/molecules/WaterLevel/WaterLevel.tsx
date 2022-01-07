@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {Animated, Easing, View, Text} from 'react-native';
 import {WaterLevelItem} from '../../../components/atoms';
+import {colors} from '../../../utils/colors';
 
 export interface WaterLevelProps {
   level: number;
@@ -45,11 +46,11 @@ export const WaterLevel: React.FC<WaterLevelProps> = ({level}) => {
         height: '100%',
         zIndex: 0,
       }}>
-      <WaterLevelItem opacity={fifthLevel} color={'#74ccf4'} />
-      <WaterLevelItem opacity={fourthLevel} color={'#5abcd8'} />
-      <WaterLevelItem opacity={thirdLevel} color={'#1ca3ec'} />
-      <WaterLevelItem opacity={secondLevel} color={'#2389da'} />
-      <WaterLevelItem opacity={firstLevel} color={'#0f5e9c'} />
+      <WaterLevelItem opacity={fifthLevel} color={colors.mayaBlue} />
+      <WaterLevelItem opacity={fourthLevel} color={colors.seaSerpent} />
+      <WaterLevelItem opacity={thirdLevel} color={colors.buttonBlue} />
+      <WaterLevelItem opacity={secondLevel} color={colors.bleuFrance} />
+      <WaterLevelItem opacity={firstLevel} color={colors.electricBlue} />
     </View>
   );
 };

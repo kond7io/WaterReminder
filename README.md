@@ -19,3 +19,4 @@
 - [React Navigation](https://reactnavigation.org/) Navigation
 - [Firebase](https://firebase.google.com/) Authentication
 - [React Native Push Notifications](https://github.com/zo0r/react-native-push-notification) Notifications
+- [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) Icons

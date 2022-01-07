@@ -5,22 +5,22 @@ export interface ColumnProps {
   children?: React.ReactNode;
   animated?: boolean;
   align?: boolean;
-  columnStyle?: ViewStyle | ViewStyle[] | Animated.AnimatedInterpolation;
+  style?: ViewStyle | ViewStyle[] | Animated.AnimatedInterpolation;
 }
 
 export const Column: React.FC<ColumnProps> = ({
   children,
   animated,
   align,
-  columnStyle,
+  style,
 }) => {
   const alignItems = align && {
     alignItems: 'center',
   };
 
   return animated ? (
-    <Animated.View style={[columnStyle, alignItems]}>{children}</Animated.View>
+    <Animated.View style={[style, alignItems]}>{children}</Animated.View>
   ) : (
-    <View style={[columnStyle, alignItems]}>{children}</View>
+    <View style={[style, alignItems]}>{children}</View>
   );
 };

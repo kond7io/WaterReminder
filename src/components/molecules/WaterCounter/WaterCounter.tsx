@@ -2,6 +2,7 @@ import React from 'react';
 import {Column} from '../../../components/containers';
 import {Text} from '../../../components/atoms';
 import {ViewStyle} from 'react-native';
+import {colors} from '../../../utils/colors';
 
 export interface WaterCounterProps {
   endLevel: string;
@@ -14,18 +15,18 @@ export const WaterCounter: React.FC<WaterCounterProps> = ({
   waterCounterStyle,
 }) => {
   return (
-    <Column align columnStyle={waterCounterStyle}>
+    <Column align>
       <Text
         children={`${endLevel} ml`}
         category={'h1'}
         weight={'bold'}
-        style={{color: '#2389da'}}
+        style={{color: colors.electricBlue}}
       />
       <Text
         children={`${currentLevel} ml`}
         category={'h3'}
         weight={'regular'}
-        style={{color: 'white'}}
+        style={{color: colors.electricBlue}}
       />
     </Column>
   );
