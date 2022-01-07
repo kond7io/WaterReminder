@@ -1,15 +1,14 @@
 import {StyleSheet, ViewStyle} from 'react-native';
 
 interface Styles {
-  button: ViewStyle;
+  glassItemStyle: ViewStyle;
 }
 
 const styles = StyleSheet.create<Styles>({
-  button: {
-    width: 150, // change to percent value
-    height: 150, // change to percent value
+  glassItemStyle: {
     alignItems: 'center',
     justifyContent: 'center',
+    marginHorizontal: 5,
   },
 });
 export default styles;

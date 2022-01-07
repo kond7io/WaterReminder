@@ -2,16 +2,16 @@ import React, {useEffect, useRef} from 'react';
 import {Animated, Easing, View, Text} from 'react-native';
 import {WaterLevelItem} from '../../../components/atoms';
 import {colors} from '../../../utils/colors';
+import {Column} from '../../../components/containers';
+import styles from './WaterLevel.style';
+import {useAnimationRef} from '../../../utils/hooks/useAnimationRef';
 
 export interface WaterLevelProps {
   level: number;
 }
 export const WaterLevel: React.FC<WaterLevelProps> = ({level}) => {
-  const firstLevel = useRef(new Animated.Value(0)).current;
-  const secondLevel = useRef(new Animated.Value(0)).current;
-  const thirdLevel = useRef(new Animated.Value(0)).current;
-  const fourthLevel = useRef(new Animated.Value(0)).current;
-  const fifthLevel = useRef(new Animated.Value(0)).current;
+  const [firstLevel, secondLevel, thirdLevel, fourthLevel, fifthLevel] =
+    useAnimationRef(level);
 
   useEffect(() => {
     Animated.stagger(250, [
@@ -39,18 +39,12 @@ export const WaterLevel: React.FC<WaterLevelProps> = ({level}) => {
   }, [level]);
 
   return (
-    <View
-      style={{
-        position: 'absolute',
-        width: '100%',
-        height: '100%',
-        zIndex: 0,
-      }}>
+    <Column style={styles.waterLevelContainerStyle}>
       <WaterLevelItem opacity={fifthLevel} color={colors.mayaBlue} />
       <WaterLevelItem opacity={fourthLevel} color={colors.seaSerpent} />
       <WaterLevelItem opacity={thirdLevel} color={colors.buttonBlue} />
       <WaterLevelItem opacity={secondLevel} color={colors.bleuFrance} />
       <WaterLevelItem opacity={firstLevel} color={colors.electricBlue} />
-    </View>
+    </Column>
   );
 };

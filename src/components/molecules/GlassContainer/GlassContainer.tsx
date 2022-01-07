@@ -1,5 +1,5 @@
-import React, {useEffect, useRef} from 'react';
-import {Animated, Easing, View, Text, ViewStyle} from 'react-native';
+import React from 'react';
+import {ViewStyle} from 'react-native';
 import {Column} from '../../../components/containers';
 import {GlassItem} from '../../../components/atoms/GlassItem/GlassItem';
 

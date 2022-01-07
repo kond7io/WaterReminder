@@ -5,6 +5,7 @@ import {Button} from '../../../components/atoms';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Animated, Easing} from 'react-native';
 import {colors} from '../../../utils/colors';
+import {useAnimationRef} from '../../../utils/hooks/useAnimationRef';
 
 export interface AddWaterGlassProps {
   style?: ViewStyle;
@@ -14,7 +15,7 @@ export const AddWaterGlass: React.FC<AddWaterGlassProps> = ({
   style,
   target,
 }) => {
-  const buttonColor = useRef(new Animated.Value(0)).current;
+  const [buttonColor] = useAnimationRef();
 
   const animate = () => {
     Animated.sequence([
@@ -45,16 +46,8 @@ export const AddWaterGlass: React.FC<AddWaterGlassProps> = ({
     <Animated.View style={[style, {...animatedStyle}]}>
       <Button
         target={animate}
-        style={[
-          {
-            width: 150,
-            height: 150,
-            alignItems: 'center',
-            justifyContent: 'center',
-          },
-        ]}>
-        <Icon name={'tint'} size={42} color={colors.buttonBlue} />
-      </Button>
+        children={<Icon name={'tint'} size={42} color={colors.buttonBlue} />}
+      />
     </Animated.View>
   );
 };
