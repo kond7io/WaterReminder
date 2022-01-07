@@ -2,7 +2,7 @@ import React from 'react';
 import {Column} from '../../../components/containers';
 import {Text} from '../../../components/atoms';
 import {ViewStyle} from 'react-native';
-import {colors} from '../../../utils/colors';
+import {colors} from '../../../utils/hooks/constants/colors';
 
 export interface WaterCounterProps {
   endLevel: string;

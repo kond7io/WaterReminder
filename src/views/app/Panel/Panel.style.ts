@@ -1,5 +1,5 @@
 import {StyleSheet, ViewStyle} from 'react-native';
-import {colors} from '../../../utils/colors';
+import {colors} from '../../../utils/hooks/constants/colors';
 
 interface Styles {
   columnStyle: ViewStyle;

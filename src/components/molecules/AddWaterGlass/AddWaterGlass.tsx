@@ -1,11 +1,12 @@
-import React, {useRef, useState} from 'react';
+import React from 'react';
 
-import {ViewStyle, View} from 'react-native';
+import {ViewStyle} from 'react-native';
 import {Button} from '../../../components/atoms';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {Animated, Easing} from 'react-native';
-import {colors} from '../../../utils/colors';
+import {Animated} from 'react-native';
+import {colors} from '../../../utils/hooks/constants/colors';
 import {useAnimationRef} from '../../../utils/hooks/useAnimationRef';
+import {iconDimensions} from '../../../utils/hooks/constants/componentsDimensions';
 
 export interface AddWaterGlassProps {
   style?: ViewStyle;
@@ -46,7 +47,9 @@ export const AddWaterGlass: React.FC<AddWaterGlassProps> = ({
     <Animated.View style={[style, {...animatedStyle}]}>
       <Button
         target={animate}
-        children={<Icon name={'tint'} size={42} color={colors.buttonBlue} />}
+        children={
+          <Icon name={'tint'} {...iconDimensions} color={colors.buttonBlue} />
+        }
       />
     </Animated.View>
   );

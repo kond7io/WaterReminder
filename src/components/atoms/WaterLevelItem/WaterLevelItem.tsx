@@ -1,23 +1,21 @@
 import React from 'react';
 import {Animated} from 'react-native';
+import styles from './WaterLevelItem.style';
 
 export interface WaterLevelItemProps {
-  opacity: React.ReactNode;
-  color: string;
+  opacity: Animated.AnimatedInterpolation;
+  backgroundColor: string;
 }
 export const WaterLevelItem: React.FC<WaterLevelItemProps> = ({
   opacity,
-  color,
+  backgroundColor,
 }) => {
   return (
     <Animated.View
-      style={{
-        flex: 1,
-        opacity: opacity,
-        backgroundColor: color,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
+      style={[
+        styles.waterLevelItemStyle,
+        {opacity: opacity, backgroundColor: backgroundColor},
+      ]}
     />
   );
 };

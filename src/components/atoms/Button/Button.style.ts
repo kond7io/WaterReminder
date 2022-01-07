@@ -1,4 +1,5 @@
 import {StyleSheet, ViewStyle} from 'react-native';
+import {buttonDimensions} from '../../../utils/hooks/constants/componentsDimensions';
 
 interface Styles {
   button: ViewStyle;
@@ -6,8 +7,7 @@ interface Styles {
 
 const styles = StyleSheet.create<Styles>({
   button: {
-    width: 150, // change to percent value
-    height: 150, // change to percent value
+    ...buttonDimensions,
     alignItems: 'center',
     justifyContent: 'center',
   },
