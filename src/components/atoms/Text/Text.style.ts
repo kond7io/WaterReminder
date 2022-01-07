@@ -2,7 +2,6 @@ import {StyleSheet, TextStyle} from 'react-native';
 
 interface Styles {
   bold: TextStyle;
-  medium: TextStyle;
   regular: TextStyle;
   h1: TextStyle;
   h2: TextStyle;

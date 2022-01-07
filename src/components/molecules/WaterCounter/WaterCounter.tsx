@@ -7,15 +7,15 @@ import {colors} from '../../../utils/colors';
 export interface WaterCounterProps {
   endLevel: string;
   currentLevel: string;
-  waterCounterStyle?: ViewStyle;
+  style?: ViewStyle;
 }
 export const WaterCounter: React.FC<WaterCounterProps> = ({
   endLevel,
   currentLevel,
-  waterCounterStyle,
+  style,
 }) => {
   return (
-    <Column align>
+    <Column align style={style}>
       <Text
         children={`${endLevel} ml`}
         category={'h1'}

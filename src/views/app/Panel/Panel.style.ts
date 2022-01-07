@@ -4,6 +4,8 @@ import {colors} from '../../../utils/colors';
 interface Styles {
   columnStyle: ViewStyle;
   waterCounterStyle: ViewStyle;
+  addWaterGlassStyle: ViewStyle;
+  glassContainerStyle: ViewStyle;
 }
 
 const styles = StyleSheet.create<Styles>({
@@ -14,6 +16,19 @@ const styles = StyleSheet.create<Styles>({
   },
   waterCounterStyle: {
     flex: 1,
+    zIndex: 2,
+  },
+  addWaterGlassStyle: {
+    zIndex: 2,
+    borderRadius: 150,
+    elevation: 20,
+  },
+  glassContainerStyle: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    flex: 1,
+    bottom: 20,
     zIndex: 2,
   },
 });
