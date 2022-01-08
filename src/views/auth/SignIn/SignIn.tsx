@@ -24,11 +24,14 @@ export const SignIn: React.FC<
         inputLabel={'E-mail'}
         value={loginFormik.values.email}
         setValue={loginFormik.handleChange('email')}
+        validation={loginFormik.errors.email}
       />
       <TextInput
         inputLabel={'Hasło'}
         value={loginFormik.values.password}
         setValue={loginFormik.handleChange('password')}
+        validation={loginFormik.errors.password}
+        textInputValidation={'Hasło min. 6 znaków'}
       />
     </View>
   );

@@ -9,7 +9,7 @@ export interface TextInputProps {
   setValue: (value: string) => void;
   backgroundColor?: string;
   validation?: string;
-  textInputValidation?: boolean;
+  textInputValidation?: string;
 }
 
 export const TextInput: React.FC<TextInputProps> = ({
@@ -33,13 +33,13 @@ export const TextInput: React.FC<TextInputProps> = ({
         mode="outlined"
         label={inputLabel}
         outlineColor={validation ? 'red' : 'blue'}
-        activeOutlineColor={'yellow'}
-        selectionColor={'yellow'}
+        activeOutlineColor={'blue'}
+        selectionColor={'black'}
         style={styles.textInput}
         theme={{
           colors: {
-            background: backgroundColor ?? 'green',
-            placeholder: validation ? 'orange' : 'red',
+            background: backgroundColor ?? 'white',
+            placeholder: validation ? 'red' : 'black',
             text: 'black',
           },
         }}
