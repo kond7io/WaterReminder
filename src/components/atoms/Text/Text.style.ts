@@ -6,6 +6,7 @@ interface Styles {
   h1: TextStyle;
   h2: TextStyle;
   h3: TextStyle;
+  h4: TextStyle;
 }
 
 const styles = StyleSheet.create<Styles>({
@@ -23,6 +24,9 @@ const styles = StyleSheet.create<Styles>({
   },
   h3: {
     fontSize: 18,
+  },
+  h4: {
+    fontSize: 12,
   },
 });
 export default styles;

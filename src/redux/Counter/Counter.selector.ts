@@ -1,3 +1,3 @@
 export const getCounterSelector = (state: any) => {
-  return state.counter;
+  return state.counter.counter;
 };

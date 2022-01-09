@@ -7,7 +7,7 @@ export interface TextProps {
   target?: () => void;
   style?: TextStyle | TextStyle[];
   weight: 'bold' | 'regular';
-  category: 'h1' | 'h2' | 'h3';
+  category: 'h1' | 'h2' | 'h3' | 'h4';
   color?: string;
 }
 

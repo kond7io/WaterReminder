@@ -7,18 +7,17 @@ import {Animated} from 'react-native';
 import {colors} from '../../../utils/constants/colors';
 import {useAnimationRef} from '../../../utils/hooks/useAnimationRef';
 import {iconDimensions} from '../../../utils/constants/componentsDimensions';
+import {useDispatch} from 'react-redux';
+import {applyCounterAction} from '../../../redux/Counter/Counter.action';
 
 export interface AddWaterGlassProps {
   style?: ViewStyle;
-  target: () => void;
 }
-export const AddWaterGlass: React.FC<AddWaterGlassProps> = ({
-  style,
-  target,
-}) => {
+export const AddWaterGlass: React.FC<AddWaterGlassProps> = ({style}) => {
   const [buttonColor] = useAnimationRef();
-
+  const dispatch = useDispatch();
   const animate = () => {
+    dispatch(applyCounterAction());
     Animated.sequence([
       Animated.timing(buttonColor, {
         toValue: 1,

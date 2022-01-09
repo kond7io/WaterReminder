@@ -8,22 +8,21 @@ import {
 import {userLoginApi} from '../../redux/User/User.api';
 import {User} from '../../types/User';
 import {getcounter} from '../../redux/Counter/Counter.saga';
-import {Alert} from 'react-native';
 import * as navigate from '../../navigation/navigationUtilities';
 import {Screens} from '../../navigation';
 
 export function* userlogin(action: any) {
   yield put(userLoginPending());
-  const {email, password} = action.payload;
+  const {email, password, callback} = action.payload;
   try {
     const user: User = yield userLoginApi(email, password);
+    debugger;
     yield put(userLoginResolved(user));
-    navigate.navigate(Screens.Panel);
-    Alert.alert('Zalogowano');
-
     yield call(getcounter);
+
+    navigate.navigate(Screens.Panel);
   } catch (error) {
-    Alert.alert('Błąd podczas logowania ' + error.message);
+    callback();
     yield put(userLoginRejected());
   }
 }

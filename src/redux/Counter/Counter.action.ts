@@ -1,10 +1,9 @@
 import {createAsyncConsts} from '../../redux/async/createAsyncConsts';
 
 export const HANDLE_APPLY_COUNTER = 'HANDLE_APPLY_COUNTER';
-export const applyCounterAction = (glassCounter: number) => {
+export const applyCounterAction = () => {
   return {
     type: HANDLE_APPLY_COUNTER,
-    glassCounter,
   };
 };
 
@@ -15,10 +14,9 @@ export const applyCounterPending = () => {
   };
 };
 
-export const applyCounterResolved = (glassCounter: number) => {
+export const applyCounterResolved = () => {
   return {
     type: APPLY_COUNTER.resolved,
-    glassCounter,
   };
 };
 
@@ -43,6 +41,7 @@ export const getCounterPending = () => {
 };
 
 export const getCounterResolved = (glassCounter: number) => {
+  debugger;
   return {
     type: GET_COUNTER.resolved,
     glassCounter,

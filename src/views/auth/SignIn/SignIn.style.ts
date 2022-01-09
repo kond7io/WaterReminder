@@ -1,10 +1,11 @@
-import {StyleSheet, ViewStyle} from 'react-native';
+import {StyleSheet, TextStyle, ViewStyle} from 'react-native';
 import {loginButtonDimensions} from '../../../utils/constants/componentsDimensions';
 import {colors} from '../../../utils/constants/colors';
 
 interface Styles {
   container: ViewStyle;
   button: ViewStyle;
+  responseText: TextStyle;
 }
 
 const styles = StyleSheet.create<Styles>({
@@ -19,7 +20,10 @@ const styles = StyleSheet.create<Styles>({
     ...loginButtonDimensions,
     backgroundColor: colors.bleuFrance,
     borderRadius: 15,
-    marginTop: 20,
+    marginTop: 15,
+  },
+  responseText: {
+    marginTop: 15,
   },
 });
 export default styles;

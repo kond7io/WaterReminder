@@ -17,7 +17,7 @@ export const CounterReducer = (state = INITIAL_STATE, action: any) => {
     case APPLY_COUNTER.resolved:
       return {
         ...state,
-        counter: action.waterCounter,
+        counter: state.counter + 1,
         loading: false,
         error: false,
       };
@@ -36,7 +36,7 @@ export const CounterReducer = (state = INITIAL_STATE, action: any) => {
     case GET_COUNTER.resolved:
       return {
         ...state,
-        counter: action.waterCounter,
+        counter: action.glassCounter,
         loading: false,
         error: false,
       };

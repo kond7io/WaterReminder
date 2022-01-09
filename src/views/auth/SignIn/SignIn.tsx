@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
 import {ParamList, Screens} from '../../../navigation';
 import {useFormik} from 'formik';
@@ -12,18 +12,27 @@ import {Text} from '../../../components/atoms/Text/Text';
 import {Button} from '../../../components/atoms';
 import styles from './SignIn.style';
 import {texts} from '../../../utils/constants/texts';
-
+import {useNavigation} from '@react-navigation/native';
 export const SignIn: React.FC<
   StackScreenProps<ParamList, Screens.SignIn>
 > = ({}) => {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
+  const [response, setResponse] = useState('');
   const loginFormik = useFormik({
-    initialValues: {email: '', password: ''},
+    initialValues: {email: 'user@leocode.pl', password: 'leocode'},
     validationSchema: loginSchema,
     onSubmit: () => {
       dispatch(
-        userLoginAction(loginFormik.values.email, loginFormik.values.password),
+        userLoginAction(
+          loginFormik.values.email,
+          loginFormik.values.password,
+          () => {
+            setResponse(texts.SIGN_IN_RESPONSE);
+          },
+        ),
       );
+      navigation.navigate(Screens.Panel);
     },
   });
 
@@ -49,6 +58,15 @@ export const SignIn: React.FC<
         validation={loginFormik.errors.password}
         textInputValidation={texts.PASSWORD_VALIDATION}
       />
+      {!!response && (
+        <Text
+          children={response}
+          style={styles.responseText}
+          category={'h4'}
+          weight={'regular'}
+          color={colors.rubyShard}
+        />
+      )}
       <Button
         target={() => loginFormik.handleSubmit()}
         children={

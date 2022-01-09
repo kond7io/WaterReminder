@@ -4,4 +4,5 @@ export const texts = {
   EMAIL: 'E-mail',
   PASSWORD: 'Hasło',
   PASSWORD_VALIDATION: 'Hasło min. 6 znaków',
+  SIGN_IN_RESPONSE: 'Wystąpił błąd podczas logowania',
 };
