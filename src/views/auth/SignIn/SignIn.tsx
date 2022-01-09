@@ -3,16 +3,17 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {ParamList, Screens} from '../../../navigation';
 import {useFormik} from 'formik';
 import {useDispatch} from 'react-redux';
-import {loginSchema} from '../../../utils/validation/validation';
+import {useNavigation} from '@react-navigation/native';
 import {TextInput} from '../../../components/atoms/TextInput/TextInput';
 import {userLoginAction} from '../../../redux/User/User.action';
 import {Column} from '../../../components/containers';
-import {colors} from '../../../utils/constants/colors';
 import {Text} from '../../../components/atoms/Text/Text';
 import {Button} from '../../../components/atoms';
-import styles from './SignIn.style';
+import {loginSchema} from '../../../utils/validation/validation';
+import {colors} from '../../../utils/constants/colors';
 import {texts} from '../../../utils/constants/texts';
-import {useNavigation} from '@react-navigation/native';
+import styles from './SignIn.style';
+
 export const SignIn: React.FC<
   StackScreenProps<ParamList, Screens.SignIn>
 > = ({}) => {
