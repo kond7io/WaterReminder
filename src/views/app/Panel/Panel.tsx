@@ -24,7 +24,7 @@ export const Panel: React.FC<
         style={styles.waterCounterStyle}
       />
       <AddWaterGlass
-        buttonDisabled={counterSelector === 12}
+        buttonDisabled={counterSelector >= 12}
         style={styles.addWaterGlassStyle}
       />
       <WaterLevel level={checkWaterLevel(counterSelector)} />
