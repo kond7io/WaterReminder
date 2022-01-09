@@ -6,5 +6,6 @@ export const userLoginApi = async (email: string, password: string) => {
   await http('auth', email, password).then(userCredential => {
     user = userCredential.user;
   });
+  // @ts-ignore
   return user;
 };

@@ -11,6 +11,7 @@ import {Column} from '../../../components/containers';
 import {colors} from '../../../utils/constants/colors';
 import {Text} from '../../../components/atoms/Text/Text';
 import {loginButtonDimensions} from '../../../utils/constants/componentsDimensions';
+import {Button} from '../../../components/atoms';
 
 export const SignIn: React.FC<
   StackScreenProps<ParamList, Screens.SignIn>
@@ -55,24 +56,35 @@ export const SignIn: React.FC<
         validation={loginFormik.errors.password}
         textInputValidation={'Hasło min. 6 znaków'}
       />
-      <TouchableOpacity
-        activeOpacity={0.8}
+      <Button
+        target={() => loginFormik.handleSubmit()}
+        children={
+          <Text
+            children={'Zaloguj się'}
+            category={'h2'}
+            weight={'bold'}
+            color={colors.white}
+          />
+        }
         style={{
+          ...loginButtonDimensions,
           backgroundColor: colors.bleuFrance,
-          alignItems: 'center',
-          justifyContent: 'center',
           borderRadius: 15,
           marginTop: 20,
-          ...loginButtonDimensions,
         }}
-        onPress={() => loginFormik.handleSubmit()}>
-        <Text
-          children={'Zaloguj się'}
-          category={'h2'}
-          weight={'bold'}
-          color={colors.white}
-        />
-      </TouchableOpacity>
+      />
+      {/*<TouchableOpacity*/}
+      {/*  activeOpacity={0.8}*/}
+      {/*  style={{*/}
+      {/*    backgroundColor: colors.bleuFrance,*/}
+      {/*    alignItems: 'center',*/}
+      {/*    justifyContent: 'center',*/}
+      {/*    borderRadius: 15,*/}
+      {/*    marginTop: 20,*/}
+      {/*    ...loginButtonDimensions,*/}
+      {/*  }}*/}
+      {/*  onPress={() => loginFormik.handleSubmit()}*/}
+      {/*/>*/}
     </Column>
   );
 };

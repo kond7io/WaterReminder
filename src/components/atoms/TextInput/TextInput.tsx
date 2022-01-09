@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {TextInput as ReactNativeTextInput} from 'react-native-paper';
 import styles from './TextInput.style';
 import {Text} from '../../../components/atoms';
+import {colors} from '../../../utils/constants/colors';
 
 export interface TextInputProps {
   password?: boolean;
@@ -35,14 +36,20 @@ export const TextInput: React.FC<TextInputProps> = ({
         onChangeText={setValue}
         mode="outlined"
         label={inputLabel}
-        outlineColor={validation ? 'red' : value.length > 1 ? 'green' : 'blue'}
-        activeOutlineColor={'blue'}
-        selectionColor={'black'}
+        outlineColor={
+          validation
+            ? colors.rubyShard
+            : value.length > 1
+            ? colors.limeGreen
+            : colors.bleuFrance
+        }
+        activeOutlineColor={colors.bleuFrance}
+        selectionColor={colors.black}
         style={styles.textInput}
         theme={{
           colors: {
-            background: backgroundColor ?? 'white',
-            placeholder: validation ? 'red' : 'black',
+            background: backgroundColor ?? colors.white,
+            placeholder: validation ? colors.rubyShard : colors.black,
             text: 'black',
           },
         }}
@@ -52,7 +59,7 @@ export const TextInput: React.FC<TextInputProps> = ({
           children={textInputValidation}
           weight={'regular'}
           category={'h3'}
-          color={'red'}
+          color={colors.rubyShard}
           style={styles.textValidation}
         />
       )}

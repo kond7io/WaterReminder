@@ -6,20 +6,21 @@ import {
 import styles from './Button.style';
 
 export interface ButtonProps {
-  children?: React.ReactNode;
   target: () => void;
+  children?: React.ReactNode;
   disabled?: boolean;
   style?: ViewStyle | ViewStyle[];
 }
 
 export const Button: React.FC<ButtonProps> = ({
-  children,
   target,
+  children,
   disabled,
   style,
 }) => {
   return (
     <ReactNativeTouchableOpacity
+      activeOpacity={0.8}
       onPress={target}
       disabled={disabled}
       style={[styles.button, style]}>

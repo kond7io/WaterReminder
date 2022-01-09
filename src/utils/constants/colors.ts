@@ -8,4 +8,5 @@ export const colors = {
   bleuFrance: '#2389da',
   rubyShard: '#b91d2d',
   wetAsh: '#b1beb6',
+  black: '#000000',
 };
