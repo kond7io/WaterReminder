@@ -33,7 +33,6 @@ export function* getcounter() {
     const response = yield getCounterApi(user.uid);
     yield put(getCounterResolved(response));
   } catch (error) {
-    console.log(error.message);
     yield put(getCounterRejected());
   }
 }
