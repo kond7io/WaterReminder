@@ -4,6 +4,7 @@ import styles from './TextInput.style';
 import {Text} from '../../../components/atoms';
 
 export interface TextInputProps {
+  password?: boolean;
   inputLabel: string;
   value: string;
   setValue: (value: string) => void;
@@ -13,6 +14,7 @@ export interface TextInputProps {
 }
 
 export const TextInput: React.FC<TextInputProps> = ({
+  password,
   inputLabel,
   value,
   setValue,
@@ -25,6 +27,7 @@ export const TextInput: React.FC<TextInputProps> = ({
   return (
     <>
       <ReactNativeTextInput
+        secureTextEntry={password}
         onFocus={() => setShowValidation(false)}
         onEndEditing={() => setShowValidation(true)}
         autoCapitalize={'none'}
@@ -46,7 +49,7 @@ export const TextInput: React.FC<TextInputProps> = ({
       />
       {validation && textInputValidation && showValidation && (
         <Text
-          children={'Format text'}
+          children={textInputValidation}
           weight={'regular'}
           category={'h3'}
           color={'red'}

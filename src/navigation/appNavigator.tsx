@@ -1,51 +1,23 @@
 import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {
-  NavigationContainer,
-  createNavigationContainerRef,
-} from '@react-navigation/native';
-import {MainNavigator} from './mainNavigator';
-import {AuthNavigator} from './authNavigator';
+import {ParamList, Screens} from './screensParams';
+import {SignIn} from '../views/auth';
+import {Panel} from '../views/app';
 
-export type AppParamList = {
-  authStack: undefined;
-  mainStack: undefined;
-};
-
-const Stack = createStackNavigator<AppParamList>();
-export const navigationRef = createNavigationContainerRef();
-
-const AppStack = () => {
-  const isSignedIn = false;
-
-  const navigatorComponent = isSignedIn ? MainNavigator : AuthNavigator;
-  const navigatorName = isSignedIn ? 'mainStack' : 'authStack';
+export const AppNavigator = () => {
+  const Stack = createStackNavigator<ParamList>();
 
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}>
-      <Stack.Screen
-        name={navigatorName}
-        component={navigatorComponent}
-        options={{
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          cardStyle: {backgroundColor: 'transparent'},
           headerShown: false,
-        }}
-      />
-    </Stack.Navigator>
-  );
-};
-
-interface NavigationProps
-  extends Partial<React.ComponentProps<typeof NavigationContainer>> {}
-
-export const AppNavigator = (props: NavigationProps) => {
-  return (
-    <NavigationContainer ref={navigationRef} {...props}>
-      <AppStack />
+        }}>
+        <Stack.Screen name={Screens.SignIn} component={SignIn} />
+        <Stack.Screen name={Screens.Panel} component={Panel} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-AppNavigator.displayName = 'AppNavigator';
