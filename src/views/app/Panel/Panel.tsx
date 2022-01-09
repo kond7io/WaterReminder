@@ -1,4 +1,5 @@
 import React from 'react';
+import {Alert} from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {ParamList, Screens} from '../../../navigation';
 import {Column} from '../../../components/containers';
@@ -19,7 +20,7 @@ export const Panel: React.FC<
       />
       <AddWaterGlass
         style={styles.addWaterGlassStyle}
-        target={() => alert('hello')}
+        target={() => Alert.alert('hello')}
       />
       <WaterLevel level={5} />
       <GlassContainer items={6} style={styles.glassContainerStyle} />

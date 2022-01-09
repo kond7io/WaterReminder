@@ -1,5 +1,4 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {ParamList, Screens} from '../../../navigation';
 import {useFormik} from 'formik';
@@ -10,8 +9,9 @@ import {userLoginAction} from '../../../redux/User/User.action';
 import {Column} from '../../../components/containers';
 import {colors} from '../../../utils/constants/colors';
 import {Text} from '../../../components/atoms/Text/Text';
-import {loginButtonDimensions} from '../../../utils/constants/componentsDimensions';
 import {Button} from '../../../components/atoms';
+import styles from './SignIn.style';
+import {texts} from '../../../utils/constants/texts';
 
 export const SignIn: React.FC<
   StackScreenProps<ParamList, Screens.SignIn>
@@ -28,63 +28,39 @@ export const SignIn: React.FC<
   });
 
   return (
-    <Column
-      style={{
-        backgroundColor: colors.white,
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingHorizontal: 20,
-      }}>
+    <Column style={styles.container}>
       <Text
-        children={'Water Reminder'}
+        children={texts.APP_TITLE}
         category={'h3'}
         weight={'bold'}
         color={colors.wetAsh}
       />
       <TextInput
-        inputLabel={'E-mail'}
+        inputLabel={texts.EMAIL}
         value={loginFormik.values.email}
         setValue={loginFormik.handleChange('email')}
         validation={loginFormik.errors.email}
       />
       <TextInput
         password
-        inputLabel={'Hasło'}
+        inputLabel={texts.PASSWORD}
         value={loginFormik.values.password}
         setValue={loginFormik.handleChange('password')}
         validation={loginFormik.errors.password}
-        textInputValidation={'Hasło min. 6 znaków'}
+        textInputValidation={texts.PASSWORD_VALIDATION}
       />
       <Button
         target={() => loginFormik.handleSubmit()}
         children={
           <Text
-            children={'Zaloguj się'}
+            children={texts.SIGN_IN}
             category={'h2'}
             weight={'bold'}
             color={colors.white}
           />
         }
-        style={{
-          ...loginButtonDimensions,
-          backgroundColor: colors.bleuFrance,
-          borderRadius: 15,
-          marginTop: 20,
-        }}
+        style={styles.button}
       />
-      {/*<TouchableOpacity*/}
-      {/*  activeOpacity={0.8}*/}
-      {/*  style={{*/}
-      {/*    backgroundColor: colors.bleuFrance,*/}
-      {/*    alignItems: 'center',*/}
-      {/*    justifyContent: 'center',*/}
-      {/*    borderRadius: 15,*/}
-      {/*    marginTop: 20,*/}
-      {/*    ...loginButtonDimensions,*/}
-      {/*  }}*/}
-      {/*  onPress={() => loginFormik.handleSubmit()}*/}
-      {/*/>*/}
     </Column>
   );
 };
