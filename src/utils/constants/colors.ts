@@ -6,4 +6,6 @@ export const colors = {
   buttonBlue: '#1ca3ec',
   electricBlue: '#0f5e9c',
   bleuFrance: '#2389da',
+  rubyShard: '#b91d2d',
+  wetAsh: '#b1beb6',
 };

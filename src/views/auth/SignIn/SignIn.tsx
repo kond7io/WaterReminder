@@ -10,13 +10,14 @@ import {userLoginAction} from '../../../redux/User/User.action';
 import {Column} from '../../../components/containers';
 import {colors} from '../../../utils/constants/colors';
 import {Text} from '../../../components/atoms/Text/Text';
+import {loginButtonDimensions} from '../../../utils/constants/componentsDimensions';
 
 export const SignIn: React.FC<
   StackScreenProps<ParamList, Screens.SignIn>
 > = ({}) => {
   const dispatch = useDispatch();
   const loginFormik = useFormik({
-    initialValues: {email: 'user@leocode.pl', password: 'leocode'},
+    initialValues: {email: '', password: ''},
     validationSchema: loginSchema,
     onSubmit: () => {
       dispatch(
@@ -31,13 +32,14 @@ export const SignIn: React.FC<
         backgroundColor: colors.white,
         flex: 1,
         justifyContent: 'center',
+        alignItems: 'center',
         paddingHorizontal: 20,
       }}>
       <Text
         children={'Water Reminder'}
         category={'h3'}
-        color={'#b1beb6'}
         weight={'bold'}
+        color={colors.wetAsh}
       />
       <TextInput
         inputLabel={'E-mail'}
@@ -53,8 +55,23 @@ export const SignIn: React.FC<
         validation={loginFormik.errors.password}
         textInputValidation={'Hasło min. 6 znaków'}
       />
-      <TouchableOpacity onPress={() => loginFormik.handleSubmit()}>
-        <Text>Zaloguj</Text>
+      <TouchableOpacity
+        activeOpacity={0.8}
+        style={{
+          backgroundColor: colors.bleuFrance,
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: 15,
+          marginTop: 20,
+          ...loginButtonDimensions,
+        }}
+        onPress={() => loginFormik.handleSubmit()}>
+        <Text
+          children={'Zaloguj się'}
+          category={'h2'}
+          weight={'bold'}
+          color={colors.white}
+        />
       </TouchableOpacity>
     </Column>
   );
