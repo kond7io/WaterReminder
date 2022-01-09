@@ -30,7 +30,7 @@ export function* getcounter() {
   yield put(getCounterPending());
   try {
     const user: User = yield select(getUserDataSelector);
-    const response = yield getCounterApi(user.uid);
+    const response: number = yield getCounterApi(user.uid);
     yield put(getCounterResolved(response));
   } catch (error) {
     yield put(getCounterRejected());
