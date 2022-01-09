@@ -9,8 +9,6 @@ export const applyCounterApi = async (userId: string) => {
 };
 
 export const getCounterApi = async (userId: string) => {
-  debugger;
-
   const dbRef = ref(getDatabase());
   let response: number;
   await get(child(dbRef, `users/${userId}`))

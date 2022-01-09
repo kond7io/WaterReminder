@@ -7,7 +7,6 @@ export const userLoginApi = async (email: string, password: string) => {
   await signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       user = userCredential.user;
-      debugger;
     })
     .catch(error => {
       console.error(error);

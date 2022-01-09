@@ -22,25 +22,18 @@ export function* applycounter() {
     yield applyCounterApi(user.uid);
     yield put(applyCounterResolved());
   } catch (error) {
-    const err = error.message;
     yield put(applyCounterRejected());
   }
 }
 
 export function* getcounter() {
   yield put(getCounterPending());
-  debugger;
   try {
     const user: User = yield select(getUserDataSelector);
-    debugger;
-
     const response = yield getCounterApi(user.uid);
-    debugger;
     yield put(getCounterResolved(response));
   } catch (error) {
     console.log(error.message);
-    debugger;
-
     yield put(getCounterRejected());
   }
 }

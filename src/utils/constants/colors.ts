@@ -7,6 +7,7 @@ export const colors = {
   electricBlue: '#0f5e9c',
   bleuFrance: '#2389da',
   rubyShard: '#b91d2d',
+  ponceau: '#f86173',
   wetAsh: '#b1beb6',
   black: '#000000',
 };

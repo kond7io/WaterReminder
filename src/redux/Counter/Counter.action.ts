@@ -41,7 +41,6 @@ export const getCounterPending = () => {
 };
 
 export const getCounterResolved = (glassCounter: number) => {
-  debugger;
   return {
     type: GET_COUNTER.resolved,
     glassCounter,

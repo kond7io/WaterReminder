@@ -16,7 +16,6 @@ export function* userlogin(action: any) {
   const {email, password, callback} = action.payload;
   try {
     const user: User = yield userLoginApi(email, password);
-    debugger;
     yield put(userLoginResolved(user));
     yield call(getcounter);
 

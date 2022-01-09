@@ -11,9 +11,13 @@ import {useDispatch} from 'react-redux';
 import {applyCounterAction} from '../../../redux/Counter/Counter.action';
 
 export interface AddWaterGlassProps {
+  buttonDisabled?: boolean;
   style?: ViewStyle;
 }
-export const AddWaterGlass: React.FC<AddWaterGlassProps> = ({style}) => {
+export const AddWaterGlass: React.FC<AddWaterGlassProps> = ({
+  buttonDisabled,
+  style,
+}) => {
   const [buttonColor] = useAnimationRef();
   const dispatch = useDispatch();
   const animate = () => {
@@ -42,12 +46,22 @@ export const AddWaterGlass: React.FC<AddWaterGlassProps> = ({style}) => {
     backgroundColor: buttonInterpolate,
   };
 
+  const disabledStyle = {
+    backgroundColor: colors.ponceau,
+  };
+
   return (
-    <Animated.View style={[style, {...animatedStyle}]}>
+    <Animated.View
+      style={[style, buttonDisabled ? {...disabledStyle} : {...animatedStyle}]}>
       <Button
+        disabled={buttonDisabled}
         target={animate}
         children={
-          <Icon name={'tint'} {...iconDimensions} color={colors.buttonBlue} />
+          <Icon
+            name={'tint'}
+            {...iconDimensions}
+            color={buttonDisabled ? colors.white : colors.buttonBlue}
+          />
         }
       />
     </Animated.View>
