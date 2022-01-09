@@ -1,8 +1,4 @@
-import {
-  put,
-  call,
-  takeLeading,
-} from 'redux-saga/effects';
+import {put, call, takeLeading} from 'redux-saga/effects';
 import {
   HANDLE_USER_LOGIN,
   userLoginPending,
