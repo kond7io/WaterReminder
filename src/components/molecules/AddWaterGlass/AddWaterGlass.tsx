@@ -25,7 +25,7 @@ export const AddWaterGlass: React.FC<AddWaterGlassProps> = ({
     Animated.sequence([
       Animated.timing(buttonColor, {
         toValue: 1,
-        duration: 500,
+        duration: 250,
         useNativeDriver: false,
       }),
       Animated.timing(buttonColor, {
