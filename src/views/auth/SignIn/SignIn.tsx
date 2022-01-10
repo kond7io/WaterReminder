@@ -3,7 +3,6 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {ParamList, Screens} from '../../../navigation';
 import {useFormik} from 'formik';
 import {useDispatch} from 'react-redux';
-import {useNavigation} from '@react-navigation/native';
 import {TextInput} from '../../../components/atoms/TextInput/TextInput';
 import {userLoginAction} from '../../../redux/User/User.action';
 import {Column} from '../../../components/containers';
@@ -13,13 +12,11 @@ import {loginSchema} from '../../../utils/validation/validation';
 import {colors} from '../../../utils/constants/colors';
 import {texts} from '../../../utils/constants/texts';
 import styles from './SignIn.style';
-import {TouchableOpacity} from 'react-native';
 
 export const SignIn: React.FC<
   StackScreenProps<ParamList, Screens.SignIn>
 > = ({}) => {
   const dispatch = useDispatch();
-  const navigation = useNavigation();
   const [response, setResponse] = useState('');
   const loginFormik = useFormik({
     initialValues: {email: 'user@leocode.pl', password: 'leocode'},
@@ -34,7 +31,6 @@ export const SignIn: React.FC<
           },
         ),
       );
-      navigation.navigate(Screens.Panel);
     },
   });
 
@@ -81,9 +77,6 @@ export const SignIn: React.FC<
         }
         style={styles.button}
       />
-      <TouchableOpacity onPress={() => _sendPush()}>
-        <Text children={'SEND PUSH'} category={'h1'} weight={'bold'} />
-      </TouchableOpacity>
     </Column>
   );
 };
