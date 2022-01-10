@@ -5,6 +5,7 @@ import {Text} from '../../../components/atoms';
 import {colors} from '../../../utils/constants/colors';
 
 export interface TextInputProps {
+  focus?: boolean;
   password?: boolean;
   inputLabel: string;
   value: string;
@@ -15,6 +16,7 @@ export interface TextInputProps {
 }
 
 export const TextInput: React.FC<TextInputProps> = ({
+  focus,
   password,
   inputLabel,
   value,
@@ -28,6 +30,7 @@ export const TextInput: React.FC<TextInputProps> = ({
   return (
     <>
       <ReactNativeTextInput
+        autoFocus={focus}
         secureTextEntry={password}
         onFocus={() => setShowValidation(false)}
         onEndEditing={() => setShowValidation(true)}

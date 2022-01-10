@@ -43,6 +43,7 @@ export const SignIn: React.FC<
         color={colors.wetAsh}
       />
       <TextInput
+        focus
         inputLabel={texts.EMAIL}
         value={loginFormik.values.email}
         setValue={loginFormik.handleChange('email')}
