@@ -8,7 +8,7 @@ export const userLoginApi = async (email: string, password: string) => {
       user = userCredential.user;
     })
     .catch(error => {
-      console.error(error);
+      throw new Error(error);
     });
 
   return user;
