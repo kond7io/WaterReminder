@@ -23,7 +23,7 @@ export function* userlogin(action: any) {
     const user: User = yield userLoginApi(email, password);
     yield put(userLoginResolved(user));
 
-    let response = yield getIsFirstLogin();
+    let response: boolean | undefined = yield getIsFirstLogin();
 
     if (response === undefined) {
       yield saveFirstLogin(true);

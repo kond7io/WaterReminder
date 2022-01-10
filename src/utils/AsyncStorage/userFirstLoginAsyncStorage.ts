@@ -13,7 +13,7 @@ export const getIsFirstLogin = async (): Promise<any> => {
     'FIRST_USER_LOGIN',
   );
   if (isFirstUserLogin) {
-    return isFirstUserLogin;
+    return JSON.parse(isFirstUserLogin);
   } else if (isFirstUserLogin === undefined) {
     return false;
   }
