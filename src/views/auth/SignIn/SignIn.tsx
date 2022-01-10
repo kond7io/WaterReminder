@@ -19,7 +19,7 @@ export const SignIn: React.FC<
   const dispatch = useDispatch();
   const [response, setResponse] = useState('');
   const loginFormik = useFormik({
-    initialValues: {email: 'user@leocode.pl', password: 'leocode'},
+    initialValues: {email: '', password: ''},
     validationSchema: loginSchema,
     onSubmit: () => {
       dispatch(
