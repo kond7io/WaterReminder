@@ -6,7 +6,7 @@ buildscript {
         minSdkVersion = 21
 
         googlePlayServicesVersion = "+" // default: "+"
-        firebaseMessagingVersion = "+" // default: "21.1.0"
+        firebaseMessagingVersion = "21.1.0" // default: "21.1.0"
 
         compileSdkVersion = 30
         targetSdkVersion = 30

@@ -13,6 +13,7 @@ import {loginSchema} from '../../../utils/validation/validation';
 import {colors} from '../../../utils/constants/colors';
 import {texts} from '../../../utils/constants/texts';
 import styles from './SignIn.style';
+import {TouchableOpacity} from 'react-native';
 
 export const SignIn: React.FC<
   StackScreenProps<ParamList, Screens.SignIn>
@@ -80,6 +81,9 @@ export const SignIn: React.FC<
         }
         style={styles.button}
       />
+      <TouchableOpacity onPress={() => _sendPush()}>
+        <Text children={'SEND PUSH'} category={'h1'} weight={'bold'} />
+      </TouchableOpacity>
     </Column>
   );
 };
