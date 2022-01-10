@@ -37,10 +37,10 @@ export const TextInput: React.FC<TextInputProps> = ({
         mode="outlined"
         label={inputLabel}
         outlineColor={
-          validation
-            ? colors.rubyShard
-            : value.length > 1
-            ? colors.limeGreen
+          value.length > 1
+            ? validation
+              ? colors.rubyShard
+              : colors.limeGreen
             : colors.bleuFrance
         }
         activeOutlineColor={colors.bleuFrance}
@@ -49,7 +49,12 @@ export const TextInput: React.FC<TextInputProps> = ({
         theme={{
           colors: {
             background: backgroundColor ?? colors.white,
-            placeholder: validation ? colors.rubyShard : colors.black,
+            placeholder:
+              value.length > 1
+                ? validation
+                  ? colors.rubyShard
+                  : colors.limeGreen
+                : colors.black,
             text: 'black',
           },
         }}
