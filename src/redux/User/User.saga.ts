@@ -10,6 +10,11 @@ import {User} from '../../types/User';
 import {getcounter} from '../../redux/Counter/Counter.saga';
 import * as navigate from '../../navigation/navigationUtilities';
 import {Screens} from '../../navigation';
+import {localNotificationSchedule} from '../../services/notifications';
+import {
+  getIsFirstLogin,
+  saveFirstLogin,
+} from '../../utils/AsyncStorage/userFirstLoginAsyncStorage';
 
 export function* userlogin(action: any) {
   yield put(userLoginPending());
@@ -17,8 +22,15 @@ export function* userlogin(action: any) {
   try {
     const user: User = yield userLoginApi(email, password);
     yield put(userLoginResolved(user));
-    yield call(getcounter);
 
+    let response = yield getIsFirstLogin();
+
+    if (response === undefined) {
+      yield saveFirstLogin(true);
+      yield localNotificationSchedule();
+    }
+
+    yield call(getcounter);
     navigate.navigate(Screens.Panel);
   } catch (error) {
     callback();

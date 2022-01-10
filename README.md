@@ -1,10 +1,10 @@
 # WaterReminder
 
-#####LOGIN DATA
+##### LOGIN DATA
 - LOGIN: user@leocode.pl
 - PASSWORD: leocode
 
-###React Native v0.66.4
+### React Native v0.66.4
 
 - [Node](http://nodejs.org/)
 - [NPM](https://www.npmjs.com/)

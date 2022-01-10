@@ -4,12 +4,10 @@ import {Provider} from 'react-redux';
 import {config} from './src/services/firebaseConfig';
 import {AppNavigator} from './src/navigation';
 import {LogBox} from 'react-native';
-import {localNotificationSchedule} from './src/services/notifications';
 
 const App = () => {
   useEffect(() => {
     config();
-    localNotificationSchedule();
   }, []);
 
   LogBox.ignoreAllLogs();
