@@ -1,11 +1,13 @@
-import {StyleSheet, ViewStyle} from 'react-native';
+import {StyleSheet, TextStyle, ViewStyle} from 'react-native';
 import {colors} from '../../../utils/constants/colors';
+import {windowHeight} from '../../../utils/constants/deviceDimension';
 
 interface Styles {
   columnStyle: ViewStyle;
   waterCounterStyle: ViewStyle;
   addWaterGlassStyle: ViewStyle;
   glassContainerStyle: ViewStyle;
+  endDayTextStyle: ViewStyle | TextStyle;
 }
 
 const styles = StyleSheet.create<Styles>({
@@ -30,6 +32,11 @@ const styles = StyleSheet.create<Styles>({
     flex: 1,
     bottom: 20,
     zIndex: 2,
+  },
+  endDayTextStyle: {
+    position: 'absolute',
+    zIndex: 2,
+    bottom: windowHeight / 4,
   },
 });
 export default styles;

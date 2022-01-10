@@ -9,8 +9,16 @@ import {
   getCounterPending,
   getCounterResolved,
   getCounterRejected,
+  HANDLE_CLEAR_COUNTER,
+  clearCounterPending,
+  clearCounterResolved,
+  clearCounterRejected,
 } from '../../redux/Counter/Counter.action';
-import {applyCounterApi, getCounterApi} from '../../redux/Counter/Counter.api';
+import {
+  applyCounterApi,
+  getCounterApi,
+  clearCounterApi,
+} from '../../redux/Counter/Counter.api';
 import {getUserDataSelector} from '../../redux/User/User.selector';
 import {User} from '../../types/User';
 
@@ -37,7 +45,19 @@ export function* getcounter() {
   }
 }
 
+export function* clearcounter() {
+  yield put(clearCounterPending());
+  try {
+    const user: User = yield select(getUserDataSelector);
+    yield clearCounterApi(user.uid);
+    yield put(clearCounterResolved());
+  } catch (error) {
+    yield put(clearCounterRejected());
+  }
+}
+
 export default function* CounterSaga() {
   yield takeLeading(HANDLE_APPLY_COUNTER, applycounter);
   yield takeLeading(HANDLE_GET_COUNTER, getcounter);
+  yield takeLeading(HANDLE_CLEAR_COUNTER, clearcounter);
 }

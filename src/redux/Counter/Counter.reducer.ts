@@ -1,4 +1,8 @@
-import {APPLY_COUNTER, GET_COUNTER} from '../../redux/Counter/Counter.action';
+import {
+  APPLY_COUNTER,
+  CLEAR_COUNTER,
+  GET_COUNTER,
+} from '../../redux/Counter/Counter.action';
 
 const INITIAL_STATE: any = {
   counter: null,
@@ -41,6 +45,25 @@ export const CounterReducer = (state = INITIAL_STATE, action: any) => {
         error: false,
       };
     case GET_COUNTER.rejected:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+      };
+    case CLEAR_COUNTER.pending:
+      return {
+        ...state,
+        loading: true,
+        error: false,
+      };
+    case CLEAR_COUNTER.resolved:
+      return {
+        ...state,
+        counter: 0,
+        loading: false,
+        error: false,
+      };
+    case CLEAR_COUNTER.rejected:
       return {
         ...state,
         loading: false,

@@ -23,3 +23,11 @@ export const getCounterApi = async (userId: string) => {
   // @ts-ignore
   return response;
 };
+
+export const clearCounterApi = async (userId: string) => {
+  const db = getDatabase();
+
+  return set(ref(db, `users/${userId}`), {
+    counter: 0,
+  });
+};

@@ -52,3 +52,29 @@ export const getCounterRejected = () => {
     type: GET_COUNTER.rejected,
   };
 };
+
+export const HANDLE_CLEAR_COUNTER = 'HANDLE_CLEAR_COUNTER';
+export const clearCounterAction = () => {
+  return {
+    type: HANDLE_CLEAR_COUNTER,
+  };
+};
+
+export const CLEAR_COUNTER = createAsyncConsts('CLEAR_COUNTER');
+export const clearCounterPending = () => {
+  return {
+    type: CLEAR_COUNTER.pending,
+  };
+};
+
+export const clearCounterResolved = () => {
+  return {
+    type: CLEAR_COUNTER.resolved,
+  };
+};
+
+export const clearCounterRejected = () => {
+  return {
+    type: CLEAR_COUNTER.rejected,
+  };
+};
